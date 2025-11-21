@@ -9,9 +9,7 @@ class SurveyFormController extends Controller
 {
     public function process(SurveyFormRequest $request)
     {
-        $phone = $request->validated('phone');
-
-        Log::channel('survey')->info('phone', [$phone]);
+        Log::channel('survey')->info('phone', $request->all());
 
         // Шаг1: Проверка существования номера телефона
         // Шаг2: Проверка, что у этого номера телефона тариф вайб

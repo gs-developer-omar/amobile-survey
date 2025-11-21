@@ -21,6 +21,8 @@ class SurveyFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [];
+        return [
+            'phone' => ['required', 'digits:11'],
+        ];
     }
 }

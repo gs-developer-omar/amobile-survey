@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-use App\ERROR_TYPE;
+use App\Enums\ERROR_TYPE;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;

@@ -52,9 +52,9 @@ return [
 
     'channels' => [
 
-        'survey' => [
+        'survey_yandex_form' => [
             'driver' => 'single',
-            'path' => storage_path('logs/survey.log'),
+            'path' => storage_path('logs/survey_yandex_form.log'),
             'level' => 'debug',
         ],
 

@@ -1,7 +1,8 @@
 <?php
 
-use App\ERROR_TYPE;
+use App\Enums\ERROR_TYPE;
 use App\Exceptions\ApiExceptions;
+use App\Http\Middleware\CheckSurveyYandexFormSecretKey;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,7 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'checkYandexForm' => CheckSurveyYandexFormSecretKey::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (Throwable $e, Request $request) {

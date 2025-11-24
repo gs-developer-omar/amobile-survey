@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\SurveyFormController;
+use App\Http\Controllers\SurveyYandexFormController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/survey/form', [SurveyFormController::class, 'process']);
+Route::middleware(['checkYandexForm'])->group(function () {
+    Route::post('/survey-yandex-form/handle', [SurveyYandexFormController::class, 'handle']);
+});

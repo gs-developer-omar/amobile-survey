@@ -58,6 +58,10 @@ class SurveyYandexFormRequest extends FormRequest
             $cleanPhone = '7' . substr($cleanPhone, 1);
         }
 
+        if (Str::length($cleanPhone) === 7) {
+            $cleanPhone = '7940' . $cleanPhone;
+        }
+
         $this->merge([
             'params' => [
                 'phone' => $cleanPhone,

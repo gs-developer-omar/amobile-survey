@@ -42,6 +42,7 @@ class SurveyYandexFormProcessor
             return response()->json($procedureResult, 400);
         }
 
+        Log::channel('survey_yandex_form')->info($phone, $procedureResult);
         return response()->json($procedureResult, 200);
     }
 
